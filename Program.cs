@@ -38,3 +38,5 @@ printNumbers(x, y);
 Console.WriteLine($"'int' type value ranges from {maxInt} To {minInt}");
 Console.WriteLine($"'double' type value ranges from {minDoub} To {maxDoub}");
 
+await Task.Delay(5000);
+Console.WriteLine($"Hello Async \n Awaited for 5 seconds");
