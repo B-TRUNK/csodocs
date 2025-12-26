@@ -51,10 +51,10 @@ void basics()
 basics();
 
 
-NameSpaces spaces = new NameSpaces();
+NameSpaces space1 = new();
 
-spaces.setName("Abanoub");
-spaces.setAge(35);
-WriteLine(spaces.getName());
-WriteLine(spaces.getAge());
+space1.setName("Abanoub");
+space1.setAge(35);
+WriteLine(space1.getName());
+WriteLine(space1.getAge());
 
