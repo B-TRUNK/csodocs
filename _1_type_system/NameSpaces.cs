@@ -42,7 +42,6 @@ namespace csodocs._1_type_system
         {
             return age;
         }
-
-
+        
     }
 }

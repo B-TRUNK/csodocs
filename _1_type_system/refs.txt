@@ -36,10 +36,47 @@ var p2 = new Person() { FirstName = "Grace", LastName = "Hopper" };
 
 -----------------------------------------------------------------------------------------------------
 *Inheritance
-
+============
 When you create a class, you can inherit from any other class that isn't defined as "sealed"
 
 A class can be declared as abstract. An abstract class contains abstract methods that have a signature definition but no
 implementation. Abstract classes can't be instantiated. They can only be used through derived classes that
 implement the abstract methods. By contrast, a sealed class doesn't allow other classes to derive from it.
 For more information, see Abstract and Sealed Classes and Class Members.
+
+------------------------------------------------------------------------------------
+
+Introduction to record types in C#
+==================================
+A record in C# is a class or struct that provides special syntax and behavior for
+working with data models. The record modifier instructs the compiler to synthesize
+members that are useful for types whose primary role is storing data.
+These members include an overload of ToString() and members that support value equality.
+
+When to use records
+-------------------
+Consider using a record in place of a class or struct in the following scenarios:
+
+    - You want to define a data model that depends on value equality.
+    - You want to define a type for which objects are immutable.
+
+Value equality
+--------------
+For records, value equality means that two variables of a record type are equal if the
+types match and all property and field values compare equal.
+For other reference types such as classes, equality means reference equality by default,
+unless value equality was implemented. That is, two variables of a class type are equal
+if they refer to the same object. Methods and operators that determine equality of
+two record instances use value equality.
+
+Not all data models work well with value equality. For example, Entity Framework Core 
+depends on reference equality to ensure that it uses only one instance of an 
+entity type for what is conceptually one entity. For this reason,
+record types aren't appropriate for use as entity types in Entity Framework Core.
+
+Immutability
+
+An immutable type is one that prevents you from changing any property or field values of
+an object after it's instantiated. Immutability can be useful when you need a type to be
+thread-safe or you're depending on a hash code remaining the same in a hash table.
+Records provide concise syntax for creating and working with immutable types.

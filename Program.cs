@@ -58,3 +58,6 @@ space1.setAge(35);
 WriteLine(space1.getName());
 WriteLine(space1.getAge());
 
+Person person = new("David_Abanoub", "Jonathan_Abanoub");
+
+person.printName();
