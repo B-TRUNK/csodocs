@@ -3,6 +3,7 @@
 using static System.Console;
 using static System.Math;
 using csodocs._1_type_system;
+using csodocs.cs7days.day1.type_system;
 
 // Basics are all embedded inside below function
 void basics()
@@ -61,3 +62,11 @@ WriteLine(space1.getAge());
 Person person = new("David_Abanoub", "Jonathan_Abanoub");
 
 person.printName();
+
+
+// cs7days/overview
+
+Overview obj = new();
+obj.setNumber(5.4);
+// test type_casting
+WriteLine(obj.setInt());

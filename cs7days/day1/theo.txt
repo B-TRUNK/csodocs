@@ -1,0 +1,287 @@
+1 - Type System
+===============
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/
+
+ In this article
+
+    Specifying types in variable declarations
+    Built-in types
+    Custom types
+    The common type system
+    Types of literal values
+    Generic types
+    Tuples and anonymous types
+    Nullable value types
+    Implicit type declarations 
+
+The .NET class library defines built-in numeric types and complex types that represent
+a wide variety of constructs. These constructs include the file system, network connections,
+collections and arrays of objects, and dates.
+
+C# also supports structural types, such as tuples and anonymous types.
+Structural types are defined by the names and types of each member,
+and the order of members in an expression. Structural types don't have unique names.
+
+The compiler uses type information to make sure all operations that are performed in
+your code are type safe.
+
+*bool isn't convertible to int.
+
+The compiler embeds the type information into the executable file as metadata.
+The common language runtime (CLR) uses that metadata at run time to further guarantee
+type safety when it allocates and reclaims memory.
+
+When you declare a variable or constant in a program, you must either specify its type
+or use the var keyword to let the compiler infer the type
+
+*see Casting and Type Conversions.
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions
+
+
+Built-in types
+--------------
+C# provides a standard set of built-in types. These types represent integers,
+floating point values, Boolean expressions, text characters, decimal values, and other
+types of data. The language also includes built-in string and object types.
+You can use these types in any C# program. For a complete list of the built-in types,
+see Built-in types.
+
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types
+
+The following table lists the C# built-in value types:
+------------------------------------------------------
+C# type keyword 	.NET type
+bool 	            System.Boolean
+byte 	            System.Byte
+sbyte 	            System.SByte
+char 	            System.Char
+decimal 	        System.Decimal
+double 	            System.Double
+float 	            System.Single
+int 	            System.Int32
+uint 	            System.UInt32
+nint 	            System.IntPtr
+nuint 	            System.UIntPtr
+long 	            System.Int64
+ulong 	            System.UInt64
+short 	            System.Int16
+ushort          	System.UInt16
+
+
+The following table lists the C# built-in reference types:
+----------------------------------------------------------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types#the-delegate-type
+
+C# type keyword 	.NET type
+object 	            System.Object
+string 	            System.String
+delegate 	        System.Delegate
+dynamic 	        System.Object
+
+
+The delegate type
+-----------------
+The declaration of a delegate type is similar to a method signature. It has a return
+value and any number of parameters of any type:
+
+public delegate void MessageDelegate(string message);
+public delegate int AnotherDelegate(MyType m, long num);
+
+In .NET, System.Action and System.Func types provide generic definitions for many
+common delegates. You likely don't need to define new custom delegate types. Instead,
+you can create instantiations of the provided generic types.
+
+A delegate is a built-in reference type that can be used to encapsulate a named or an
+anonymous method. Delegates are similar to function pointers in C++; however,
+delegates are type-safe and secure. For applications of delegates, see Delegates and
+Generic Delegates. Delegates are the basis for Events. A delegate can be instantiated
+by associating it either with a named or anonymous method.
+
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/generic-delegates
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
+
+The delegate must be instantiated with a method or lambda expression that has a
+compatible return type and input parameters. For more information on the degree of
+variance that is allowed in the method signature, see Variance in Delegates.
+For use with anonymous methods, the delegate and the code to be associated with it
+are declared together.
+
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/using-variance-in-delegates
+
+
+*Custom types
+-------------
+Use the struct, class, interface, enum, and record constructs to create your own
+custom types. 
+
+*Enum
+-----
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
+
+*Record
+-------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record
+
+
+*One of the first decisions you make when defining a type is deciding which construct to use for your type. The following list helps make that initial decision. Some choices overlap. In most scenarios, more than one option is a reasonable choice.
+
+    If the data type isn't part of your app domain and doesn't include behavior, use a structural type.
+    If the data storage size is small, no more than 64 bytes, choose a struct or record struct.
+    If the type is immutable, or you want nondestructive mutation, choose a struct or record struct.
+    If your type should have value semantics for equality, choose a record class or record struct.
+    If the type is primarily for storing data, with minimal behavior, choose a record class or record struct.
+    If the type is part of an inheritance hierarchy, choose a record class or a class.
+    If the type uses polymorphism, choose a class.
+    If the primary purpose is behavior, choose a class.
+
+You can also choose an interface to model a contract: behavior described by members
+that can be implemented by unrelated types. Interfaces are abstract and declare members
+that must be implemented by all class or struct types that inherit from that interface.
+
+
+*Generic types
+--------------
+Declare a type with one or more (type parameters) that act as placeholders for the actual
+type (the concrete type). Client code provides the concrete type when it creates an 
+instance of the type. These types are called generic types. For example, the .NET type 
+System.Collections.Generic.List<T> has one type parameter that by convention is named T.
+When you create an instance of the type, you specify the type of the objects that the
+list contains, such as string:
+
+List<string> stringList = new List<string>();
+stringList.Add("String example");
+// compile time error adding a type other than a string:
+stringList.Add(4);
+
+https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-10.0
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/generics
+
+
+// Declare the generic class.
+public class GenericList<T>
+{
+    public void Add(T item) { }
+}
+
+public class ExampleClass { }
+
+class TestGenericList
+{
+    static void Main()
+    {
+        // Create a list of type int.
+        GenericList<int> list1 = new();
+        list1.Add(1);
+
+        // Create a list of type string.
+        GenericList<string> list2 = new();
+        list2.Add("");
+
+        // Create a list of type ExampleClass.
+        GenericList<ExampleClass> list3 = new();
+        list3.Add(new ExampleClass());
+    }
+}
+
+Generics are most frequently used with collections and the methods that operate on them.
+The System.Collections.Generic namespace contains several generic-based collection
+classes. The nongeneric collections, such as ArrayList aren't recommended and are
+maintained only for compatibility purposes. For more information, see Generics in .NET.
+
+https://learn.microsoft.com/en-us/dotnet/standard/generics/
+
+The type parameter T is used in several locations where a concrete type would ordinarily be used to indicate the type of the item stored in the list:
+
+    As the type of a method parameter in the AddHead method.
+    As the return type of the Data property in the nested Node class.
+    As the type of the private member data in the nested class.
+
+T is available to the nested Node class. When GenericList<T> is instantiated with a
+concrete type, for example as a GenericList<int>, each occurrence of T is replaced
+with int.
+
+// Type parameter T in angle brackets.
+public class GenericList<T>
+{
+    // The nested class is also generic, and
+    // holds a data item of type T.
+    private class Node(T t)
+    {
+        // T as property type.
+        public T Data { get; set; } = t;
+
+        public Node? Next { get; set; }
+    }
+
+    // First item in the linked list
+    private Node? head;
+
+    // T as parameter type.
+    public void AddHead(T t)
+    {
+        Node n = new(t);
+        n.Next = head;
+        head = n;
+    }
+
+    // T in method return type.
+    public IEnumerator<T> GetEnumerator()
+    {
+        Node? current = head;
+
+        while (current is not null)
+        {
+            yield return current.Data;
+            current = current.Next;
+        }
+    }
+}
+
+The following code example shows how client code uses the generic GenericList<T> class
+to create a list of integers. If you change the type argument, the following code
+creates lists of strings or any other custom type:
+
+// A generic list of int.
+GenericList<int> list = new();
+
+// Add ten int values.
+for (int x = 0; x < 10; x++)
+{
+    list.AddHead(x);
+}
+
+// Write them to the console.
+foreach (int i in list)
+{
+    Console.WriteLine(i);
+}
+
+Console.WriteLine("Done");
+
+
+*Tuples and anonymous types
+---------------------------
+Creating a type for simple sets of related values can be inconvenient if you don't
+intend to store or pass these values using public APIs. You can create tuples or 
+anonymous types for this purpose. For more information, see tuples and Anonymous Types.
+
+*Tuples
+-------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
+*Anonymous
+----------
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/anonymous-types
+
+*Nullable value Types
+---------------------
+Ordinary value types can't have a value of null. However, you can create nullable value
+types by appending a ? after the type. For example, int? is an int type that can also
+have the value null.
+
+*Nullable value types
+---------------------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
+
+Nullable value types are instances of the generic struct type System.Nullable<T>
+https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1?view=net-10.0
