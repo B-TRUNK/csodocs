@@ -64,9 +64,20 @@ Person person = new("David_Abanoub", "Jonathan_Abanoub");
 person.printName();
 
 
-// cs7days/overview
+// cs7days/Overview
 
 Overview obj = new();
 obj.setNumber(5.4);
 // test type_casting
 WriteLine(obj.setInt());
+
+// cs7days/NewClass
+NewClass nc = new(8);
+
+// cs7days/PrimaryConstClass
+PrimaryConstClass pcs = new(1, "Your Name,");
+
+// cs7days/RequiredPropsClass
+RequiredPropsClass rpc = new() {FirestName="Abanoub", LastName="Boshra"};
+
+

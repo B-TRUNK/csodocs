@@ -1,5 +1,8 @@
 1 - Type System
 ===============
+a) Overview
+-----------
+
 https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/
 
  In this article
@@ -285,3 +288,93 @@ https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types
 
 Nullable value types are instances of the generic struct type System.Nullable<T>
 https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1?view=net-10.0
+
+======================================================================================
+
+b) Namespaces
+-------------
+
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/namespaces
+
+Namespaces are heavily used in C# programming in two ways. First,
+.NET uses namespaces to organize its many classes, as follows:
+
+System.Console.WriteLine("Hello World!");
+
+System is a namespace and Console is a class in that namespace. The using keyword can
+be used so that the complete name isn't required, as in the following example:
+
+using System;
+Console.WriteLine("Hello World!");
+
+see the using directive.
+------------------------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive
+
+======================================================================================
+
+c) Class:
+---------
+
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes
+
+Reference types
+
+A type that is defined as a class is a reference type. At run time, when you declare
+a variable of a reference type, the variable contains the value null until you
+explicitly create an instance of the class by using the new operator,
+or assign it an object of a compatible type created elsewhere.
+
+When the object is created, enough memory is allocated on the managed heap for that
+specific object, and the variable holds only a reference to the location of said object.
+When an instance of a class is created, a reference to the object is passed back to
+the programmer.
+The memory used by an object is reclaimed by the automatic memory management
+functionality of the Common Language Runtime (CLR), which is known as 
+garbage collection. For more information about garbage collection, 
+see Automatic memory management and garbage collection.
+
+*** Garbage Collection Fundamentals:
+------------------------------------
+https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals
+
+
+*The default access for a class type is internal
+
+*Every .NET type has a default value. Typically, that value is 0 for number types,
+and null for all reference types. You can rely on that default value when it's reasonable in your app.
+
+*Class inheritance:
+-------------------
+Classes fully support inheritance, a fundamental characteristic of object-oriented 
+programming. When you create a class, you can inherit from any other class that isn't 
+defined as sealed. Other classes can inherit from your class and override class 
+virtual methods. Furthermore, you can implement one or more interfaces.
+
+*sealed_classes
+---------------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/sealed
+
+*inheritance
+------------
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance
+
+A class can be declared as abstract. An abstract class contains abstract methods that
+have a signature definition but no implementation. Abstract classes can't be 
+instantiated. They can only be used through derived classes that implement the abstract
+methods. By contrast, a sealed class doesn't allow other classes to derive from it.
+For more information, see Abstract and Sealed Classes and Class Members.
+
+*abstract_classes
+-----------------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract
+
+
+*see Abstract and Sealed Classes and Class Members.
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members
+
+
+*Class definitions can be split between different source files. For more information, see Partial Classes and Methods.
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods
+
+=======================================================================================
