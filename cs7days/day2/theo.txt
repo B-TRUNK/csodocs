@@ -1,0 +1,244 @@
+OOP
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/
+
+
+1 - Encapsulation
+-----------------
+Encapsulation is sometimes referred to as the first pillar or principle of object-oriented programming. A class or struct can specify how accessible each of its 
+members is to code outside of the class or struct. Members not intended for 
+consumers outside of the class or assembly are hidden to limit the potential for 
+coding errors or malicious exploits.
+
+1.1 Members
+-----------
+The members of a type include all methods, fields, constants, properties, and 
+events. In C#, there are no global variables or methods as there are in some 
+other languages. Even a program's entry point, the Main method, must be declared 
+within a class or struct 
+
+The following list includes all the various kinds of members that can be declared in a class, struct, or record.
+
+    Fields
+    Constants
+    Properties
+    Methods
+    Constructors
+    Events
+    Finalizers
+    Indexers
+    Operators
+    Nested Types
+
+members:
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/members
+
+
+
+1.2 - Accessibility
+-------------------
+Some methods and properties are meant to be called or accessed from code outside a class or struct, known as client code. Other methods and properties might be only for use in the class or struct itself. It's important to limit the accessibility of your code so that only the intended client code can reach it. You specify how accessible your types and their members are to client code by using the following access modifiers:
+
+    public
+    protected
+    internal
+    protected internal
+    private
+    private protected.
+
+*The default accessibility is private.
+
+
+*Access modifiers:
+------------------
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers
+
+
+*Accessibility levels:
+----------------------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/accessibility-levels
+
+
+2 - Inheritance
+---------------
+Classes (but not structs) support the concept of inheritance. A class that 
+derives from another class, called the base class, automatically contains all the 
+public, protected, and internal members of the base class except its constructors 
+and finalizers.
+
+Classes can be declared as abstract, which means that one or more of their 
+methods have no implementation. Although abstract classes can't be instantiated 
+directly, they can serve as base classes for other classes that provide the 
+missing implementation. Classes can also be declared as sealed to prevent other 
+classes from inheriting from them.
+
+Interfaces
+----------
+Classes, structs, and records can implement multiple interfaces. To implement 
+from an interface means that the type implements all the methods defined in the 
+interface. For more information, see Interfaces.
+
+*abstract:
+----------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract
+
+*sealed:
+--------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/sealed
+
+
+Static Types
+------------
+Classes (but not structs or records) can be declared as static. A static class 
+can contain only static members and can't be instantiated with the new keyword. 
+One copy of the class is loaded into memory when the program loads, and its 
+members are accessed through the class name. Classes, structs, and records can 
+contain static members. For more information, see Static classes and static class 
+members.
+
+* Static classes and static class members
+-----------------------------------------
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members
+
+
+Nested Types
+------------
+A class, struct, or record can be nested within another class, struct, or record. 
+For more information, see Nested Types.
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/nested-types
+
+
+Partial Types
+-------------
+You can define part of a class, struct, or method in one code file and another 
+part in a separate code file. For more information, see Partial Classes and 
+Methods.
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods
+
+
+Anonymous Types
+---------------
+In situations where it isn't convenient or necessary to create a named class you 
+use anonymous types. Named data members define anonymous types. For more 
+information, see Anonymous types.
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/anonymous-types
+
+
+Extension Members
+-----------------
+You can "extend" a class without creating a derived class by creating a separate 
+type. That type contains methods that can be called as if they belonged to the 
+original type. For more information, see Extension methods.
+
+
+Records
+-------
+You can add the record modifier to a class or a struct. Records are types with 
+built-in behavior for value-based equality. A record (either record class or 
+record struct) provides the following features:
+
+    Concise syntax for creating a reference type with immutable properties.
+    Value equality. Two variables of a record type are equal if they have the same
+    type, and if, for every field, the values in both records are equal. Classes 
+    use reference equality: two variables of a class type are equal if they refer 
+    to the same object.
+    Concise syntax for nondestructive mutation. A with expression lets you create 
+    a new record instance that is a copy of an existing instance but with 
+    specified property values changed.
+    Built-in formatting for display. The ToString method prints the record type 
+    name and the names and values of public properties.
+    Support for inheritance hierarchies in record classes. Record classes support 
+    inheritance. Record structs don't support inheritance.
+
+Objects - create instances of types
+-----------------------------------
+A class or struct definition is like a blueprint that specifies what the type can
+do. An object is basically a block of memory that is allocated and configured 
+according to the blueprint.
+
+Struct Instances vs. Class Instances
+------------------------------------
+Because classes are reference types, a variable of a class object holds a 
+reference to the address of the object on the managed heap. If a second variable 
+of the same type is assigned to the first variable, then both variables refer to 
+the object at that address.
+
+Because structs are value types, a variable of a struct object holds a copy of 
+the entire object. Instances of structs can also be created by using the new 
+operator, but this isn't required.
+
+Object Identity vs. Value Equality
+----------------------------------
+When you compare two objects for equality, you must first distinguish whether you 
+want to know whether the two variables represent the same object in memory, 
+or whether the values of one or more of their fields are equivalent. If you're 
+intending to compare values, you must consider whether the objects are instances 
+of value types (structs) or reference types (classes, delegates, arrays).
+
+    To determine whether two class instances refer to the same location in memory 
+    (which means that they have the same identity), use the static Object.
+    ReferenceEquals method. (System.Object is the implicit base class for all 
+    value types and reference types, including user-defined structs and classes.)
+
+    The ValueType.Equals method, by default, determines whether the instance 
+    fields in two struct instances have the same values. Because all structs 
+    implicitly inherit from System.ValueType, you call the method directly on 
+    your object as shown in the following example:
+
+    //public struct Person(string name, int age)
+    //{
+    //    public string Name { get; set; } = name;
+    //    public int Age { get; set; } = age;
+    //}
+
+    Person p1 = new("Wallace", 75);
+    Person p2 = new("", 42);
+    p2.Name = "Wallace";
+    p2.Age = 75;
+
+    if (p2.Equals(p1))
+        Console.WriteLine("p2 and p1 have the same values.");
+
+    // Output: p2 and p1 have the same values.
+
+
+The default System.ValueType implementation of Equals uses boxing and reflection 
+in some cases. For information about how to provide an efficient equality 
+algorithm that's specific to your type, see How to define value equality for a 
+type. Records are reference types that use value semantics for equality.
+
+*How to define value equality for a type
+----------------------------------------
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type
+
+To determine whether the values of the fields in two class instances are equal, 
+you might be able to use the Equals method or the == operator. However, only use 
+them if the class has overridden or overloaded them to provide a custom 
+definition of what "equality" means for objects of that type. The class might 
+also implement the IEquatable<T> interface or the IEqualityComparer<T> interface.
+Both interfaces provide methods that can be used to test value equality. When designing your own classes that override Equals, make sure to follow the guidelines stated in How to define value equality for a type and Object.Equals(Object).
+
+Related Sections
+----------------
+For more information:
+---------------------
+    Classes
+    Constructors
+    https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors
+    
+    Finalizers
+    https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/finalizers
+
+    Events
+    https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
+
+    object
+    Inheritance
+    class
+    Structure types
+    https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
+
+    new Operator
+    https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/new-operator
+
+    Common Type System
+    https://learn.microsoft.com/en-us/dotnet/standard/base-types/common-type-system
