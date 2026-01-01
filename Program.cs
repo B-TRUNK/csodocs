@@ -4,6 +4,7 @@ using static System.Console;
 using static System.Math;
 using csodocs._1_type_system;
 using csodocs.cs7days.day1.type_system;
+using csodocs.cs7days.day4;
 
 // Basics are all embedded inside below function
 void basics()
@@ -79,5 +80,26 @@ PrimaryConstClass pcs = new(1, "Your Name,");
 
 // cs7days/RequiredPropsClass
 RequiredPropsClass rpc = new() {FirestName="Abanoub", LastName="Boshra"};
+
+// cs7days/day4/Generics.cs
+Generics<string> stringData = new();
+Generics<int> intData = new Generics<int>();
+
+stringData.Data = "String Data Filled!";
+intData.Data = 10;
+
+stringData.PrintData(stringData.Data);
+intData.PrintData(intData.Data);
+
+// cs7days/day4/GenMethods.cs
+
+int a= 1; int b = 3;
+Console.WriteLine($"a= {a} + b = {b}");
+
+GenMethods gen = new();
+gen.swap<int>(ref a, ref b);
+
+Console.WriteLine($"a= {a} + b = {b}");
+
 
 
