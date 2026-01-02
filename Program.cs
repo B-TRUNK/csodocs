@@ -5,6 +5,7 @@ using static System.Math;
 using csodocs._1_type_system;
 using csodocs.cs7days.day1.type_system;
 using csodocs.cs7days.day4;
+using csodocs.cs7days.day5;
 
 // Basics are all embedded inside below function
 void basics()
@@ -35,7 +36,7 @@ void basics()
 
     void printNumbers(int a,int b)
     {
-        Console.WriteLine(a + b);
+        WriteLine(a + b);
     }
 
     printNumbers(x, y);
@@ -93,13 +94,17 @@ intData.PrintData(intData.Data);
 
 // cs7days/day4/GenMethods.cs
 
-int a= 1; int b = 3;
-Console.WriteLine($"a= {a} + b = {b}");
+int a = 1; int b = 3;
+WriteLine($"a= {a} + b = {b}");
 
 GenMethods gen = new();
-gen.swap<int>(ref a, ref b);
+gen.swap(ref a, ref b);
 
-Console.WriteLine($"a= {a} + b = {b}");
+WriteLine($"a= {a} + b = {b}");
 
+// cs7days/day5/Delegates.cs
+Delegates dg = new();
+
+dg.Instantiate();
 
 
