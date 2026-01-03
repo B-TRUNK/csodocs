@@ -1,0 +1,32 @@
+Async & Await
+-------------
+https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/
+
+
+The Task asynchronous programming (TAP) model
+
+*Task asynchronous programming (TAP) model
+-----------------------------------------
+https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/task-asynchronous-programming-model
+
+provides a layer of abstraction over 
+typical asynchronous coding. In this model, you write code as a sequence of statements
+, the same as usual. The difference is you can read your task-based code as the 
+compiler processes each statement and before it starts processing the next statement.
+To accomplish this model, the compiler performs many transformations to complete 
+each task. Some statements can initiate work and return a Task
+
+*Task
+-----
+https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task?view=net-10.0
+
+object that represents
+the ongoing work and the compiler must resolve these transformations. The goal of 
+task asynchronous programming is to enable code that reads like a sequence of 
+statements, but executes in a more complicated order. Execution is based on 
+external resource allocation and when tasks complete.
+task asynchronous programming model is analogous to how people give 
+instructions for processes that include asynchronous tasks. This article uses an 
+example with instructions for making breakfast to show how the async and await 
+keywords make it easier to reason about code that includes a series of asynchronous 
+instructions.
