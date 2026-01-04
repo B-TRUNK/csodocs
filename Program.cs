@@ -6,6 +6,8 @@ using csodocs._1_type_system;
 using csodocs.cs7days.day1.type_system;
 using csodocs.cs7days.day4;
 using csodocs.cs7days.day5;
+using System.Runtime.CompilerServices;
+using csodocs.cs7days.day7;
 
 // Basics are all embedded inside below function
 void basics()
@@ -106,5 +108,16 @@ WriteLine($"a= {a} + b = {b}");
 Delegates dg = new();
 
 dg.Instantiate();
+
+// cs7days/day7/Unsafe.cs
+
+var unsf = new Pointers();
+
+
+int z = 9;
+unsf.ReliableCode(z); 
+
+
+
 
 

@@ -1,0 +1,22 @@
+Unsafe code, pointer types, and function pointers
+-------------------------------------------------
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/unsafe-code
+
+C# supports an unsafe context, in which you can write unverifiable code. In 
+an unsafe context, code can use pointers, allocate and free blocks of memory, 
+and call methods using function pointers. Unsafe code in C# isn't necessarily 
+dangerous; it's just code whose safety can't be verified.
+
+Unsafe code has the following properties:
+-----------------------------------------
+    Methods, types, and code blocks can be defined as unsafe.
+    In some cases, unsafe code can increase an application's performance by 
+    enabling direct memory access through pointers to avoid array bounds 
+    checks.
+    Unsafe code is required when you call native functions that require pointers.
+    Using unsafe code introduces security and stability risks.
+    The code that contains unsafe blocks must be compiled with the 
+    AllowUnsafeBlocks compiler option.
+
+*see Unsafe code best practices.
+https://learn.microsoft.com/en-us/dotnet/standard/unsafe-code/best-practices
