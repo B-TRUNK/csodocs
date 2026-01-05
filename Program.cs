@@ -96,8 +96,9 @@ WriteLine("========================= \n Value After Passing by Reference:");
 WriteLine(passing_obj.PassByReference(ref chk_int));
 WriteLine("========================= \n");
 
-// int arg; // Initialization is optional before the call
+//int arg; // Initialization is optional before the call
 passing_obj.OutModified(out int arg); // C# 7+ inline declaration
+WriteLine("Out Parameter Value");
 WriteLine(arg); // Output: 10
 
 

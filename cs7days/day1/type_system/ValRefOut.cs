@@ -20,11 +20,10 @@ namespace csodocs.cs7days.day1.type_system
         }
 
         // out Modifier
-        public int OutModified(ref int z) // Pass as output using 'out'
+        public void OutModified(out int z) // Pass as output using 'out'
         {
             // Cannot read 'i' before assigning a value
-            z = 10 ;
-            return z;  // Must assign a value before returning
+            z = 10 ;  // Must assign a value before returning
         }
     }
 }
