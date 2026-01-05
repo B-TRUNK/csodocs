@@ -84,6 +84,24 @@ PrimaryConstClass pcs = new(1, "Your Name,");
 // cs7days/RequiredPropsClass
 RequiredPropsClass rpc = new() {FirestName="Abanoub", LastName="Boshra"};
 
+// cs7days/day1/ValRefOut.cs
+int chk_int = 2;
+ValRefOut passing_obj = new();
+WriteLine("========================= \n Value After Passing by Value:");
+passing_obj.PassByValue(chk_int);
+WriteLine(chk_int);
+WriteLine("========================= \n");
+
+WriteLine("========================= \n Value After Passing by Reference:");
+WriteLine(passing_obj.PassByReference(ref chk_int));
+WriteLine("========================= \n");
+
+// int arg; // Initialization is optional before the call
+passing_obj.OutModified(out int arg); // C# 7+ inline declaration
+WriteLine(arg); // Output: 10
+
+
+
 // cs7days/day4/Generics.cs
 Generics<string> stringData = new();
 Generics<int> intData = new Generics<int>();
