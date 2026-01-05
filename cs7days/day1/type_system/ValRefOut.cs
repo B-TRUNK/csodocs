@@ -25,5 +25,12 @@ namespace csodocs.cs7days.day1.type_system
             // Cannot read 'i' before assigning a value
             z = 10 ;  // Must assign a value before returning
         }
+
+        public bool TryGetValues(out int value1, out string value2)
+        {
+            value1 = 1;
+            value2 = "hello";
+            return true;
+        }
     }
 }

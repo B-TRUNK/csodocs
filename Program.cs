@@ -101,6 +101,11 @@ passing_obj.OutModified(out int arg); // C# 7+ inline declaration
 WriteLine("Out Parameter Value");
 WriteLine(arg); // Output: 10
 
+// Using Discard
+passing_obj.TryGetValues(out chk_int, out _);
+Console.WriteLine($"Result: {chk_int}"); // Output: Result: 1
+// Console.WriteLine(_); // This would cause a compiler error
+
 
 
 // cs7days/day4/Generics.cs
