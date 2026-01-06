@@ -17,9 +17,9 @@ https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/
     Nullable value types
     Implicit type declarations 
 
-The .NET class library defines built-in numeric types and complex types that represent
-a wide variety of constructs. These constructs include the file system, network connections,
-collections and arrays of objects, and dates.
+The .NET class library defines built-in numeric types and complex types that 
+represent a wide variety of constructs. These constructs include the file system, 
+network connections, collections and arrays of objects, and dates.
 
 C# also supports structural types, such as tuples and anonymous types.
 Structural types are defined by the names and types of each member,

@@ -86,6 +86,7 @@ RequiredPropsClass rpc = new() {FirestName="Abanoub", LastName="Boshra"};
 
 // cs7days/day1/ValRefOut.cs
 int chk_int = 2;
+
 ValRefOut passing_obj = new();
 WriteLine("========================= \n Value After Passing by Value:");
 passing_obj.PassByValue(chk_int);
@@ -103,7 +104,7 @@ WriteLine(arg); // Output: 10
 
 // Using Discard
 passing_obj.TryGetValues(out chk_int, out _);
-Console.WriteLine($"Result: {chk_int}"); // Output: Result: 1
+WriteLine($"Result: {chk_int}"); // Output: Result: 1
 // Console.WriteLine(_); // This would cause a compiler error
 
 
@@ -139,9 +140,14 @@ var unsf = new Pointers();
 
 
 int z = 9;
-unsf.ReliableCode(z); 
+unsf.ReliableCode(z);
 
+// =================================================================================
 
+// day1/Delegate.cs
+FullDelegate deleg = new();
+WriteLine("Delegate Exectution");
+deleg.DelegateInstantiate();
 
 
 
