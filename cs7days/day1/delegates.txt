@@ -87,3 +87,11 @@ public static void DelegateMethod(string message)
     Console.WriteLine(message);
 }
 -------------------------------------------------
+
+----------------------------------
+// Instantiate the delegate.
+Callback handler = DelegateMethod;
+
+// Call the delegate.
+handler("Hello World");
+----------------------------------

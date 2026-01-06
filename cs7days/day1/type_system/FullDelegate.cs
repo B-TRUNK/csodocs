@@ -15,14 +15,12 @@ namespace csodocs.cs7days.day1.type_system
             Console.WriteLine(message);
         }
 
-        public object? DelegateInstantiate()
+        public void DelegateInstantiate()
         {
-
             // Instantiate the delegate.
             CallItBack handler = DelegateMethod;
             // Call the delegate.
-            return handler.DynamicInvoke("Hello I'm a Delegate!");
-
+            handler("Hello I'm a Delegate!");
         }
         
 
