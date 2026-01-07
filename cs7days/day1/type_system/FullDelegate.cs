@@ -7,7 +7,7 @@ namespace csodocs.cs7days.day1.type_system
 {
     public class FullDelegate
     {
-        private delegate void CallItBack(string message);
+        public delegate void CallItBack(string message);
 
         // Create a method for a delegate.
         private static void DelegateMethod(string message)
@@ -21,6 +21,11 @@ namespace csodocs.cs7days.day1.type_system
             CallItBack handler = DelegateMethod;
             // Call the delegate.
             handler("Hello I'm a Delegate!");
+        }
+
+        public static void MethodWithCallback(int param1, int param2, CallItBack callItBack)
+        {
+            callItBack("The number is: " + (param1 + param2).ToString());
         }
         
 

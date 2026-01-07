@@ -149,5 +149,18 @@ FullDelegate deleg = new();
 WriteLine("Delegate Exectution");
 deleg.DelegateInstantiate();
 
+int n = 7;
+int m = 9;
+
+// Lambda Expression
+FullDelegate.MethodWithCallback(n, m, message =>
+{
+    Console.WriteLine(message);
+});
+
+// Or
+FullDelegate.MethodWithCallback(n, m, Console.WriteLine);
+
+
 
 
