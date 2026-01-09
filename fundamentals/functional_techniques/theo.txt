@@ -1,0 +1,20 @@
+Pattern matching overview
+
+Pattern matching is a technique where you test an expression to determine if it has certain characteristics. C# pattern matching provides more concise syntax for testing expressions and taking action when an expression matches. The "is expression" supports pattern matching to test an expression and conditionally declare a new variable to the result of that expression. The "switch expression" enables you to perform actions based on the first matching pattern for an expression. These two expressions support a rich vocabulary of patterns.
+
+This article provides an overview of scenarios where you can use pattern matching. These techniques can improve the readability and correctness of your code. For a full discussion of all the patterns you can apply, see the article on patterns in the language reference.
+
+Null checks
+
+One of the most common scenarios for pattern matching is to ensure values aren't null. You can test and convert a nullable value type to its underlying type while testing for null using the following example:
+
+int? maybe = 12;
+
+if (maybe is int number)
+{
+    Console.WriteLine($"The nullable int 'maybe' has the value {number}");
+}
+else
+{
+    Console.WriteLine("The nullable int 'maybe' doesn't hold a value");
+}

@@ -155,11 +155,11 @@ int m = 9;
 // Lambda Expression
 FullDelegate.MethodWithCallback(n, m, message =>
 {
-    Console.WriteLine(message);
+    WriteLine(message);
 });
 
 // Or
-FullDelegate.MethodWithCallback(n, m, Console.WriteLine);
+FullDelegate.MethodWithCallback(n, m, WriteLine);
 
 
 
