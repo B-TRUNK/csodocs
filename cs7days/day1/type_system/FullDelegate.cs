@@ -10,7 +10,7 @@ namespace csodocs.cs7days.day1.type_system
         public delegate void CallItBack(string message);
 
         // Create a method for a delegate.
-        private static void DelegateMethod(string message)
+        public static void DelegateMethod(string message)
         {
             Console.WriteLine(message);
         }

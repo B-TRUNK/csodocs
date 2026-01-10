@@ -161,6 +161,8 @@ FullDelegate.MethodWithCallback(n, m, message =>
 // Or
 FullDelegate.MethodWithCallback(n, m, WriteLine);
 
+// day1/Enummy.cs
+Enummy enummy = new();
 
-
+enummy.ShowEnumValues();
 
