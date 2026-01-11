@@ -1,0 +1,121 @@
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record
+
+The record modifier provides built-in functionality for encapsulating data. 
+The record class and record syntax define reference types. The record struct syntax 
+defines a value type.
+
+When you declare a primary constructor on a record, the compiler generates public 
+properties for the primary constructor parameters. The primary constructor 
+parameters to a record are positional parameters. The compiler creates positional 
+properties that mirror the primary constructor or positional parameters. 
+The compiler doesn't synthesize properties for primary constructor parameters on 
+types that don't have the record modifier.
+
+
+The following two examples demonstrate record (or record class) reference types:
+
+public record Person(string FirstName, string LastName);
+
+public record Person
+{
+    public required string FirstName { get; init; }
+    public required string LastName { get; init; }
+};
+
+The following two examples demonstrate record struct value types:
+
+public readonly record struct Point(double X, double Y, double Z);
+
+public record struct Point
+{
+    public double X { get; init; }
+    public double Y { get; init; }
+    public double Z { get; init; }
+}
+
+You can also create records with mutable properties and fields:
+
+public record Person
+{
+    public required string FirstName { get; set; }
+    public required string LastName { get; set; }
+};
+
+Record structs can be mutable as well, both positional record structs and record 
+structs with no positional parameters:
+
+public record struct DataMeasurement(DateTime TakenAt, double Measurement);
+
+public record struct Point
+{
+    public double X { get; set; }
+    public double Y { get; set; }
+    public double Z { get; set; }
+}
+
+While records can be mutable, they're primarily intended for supporting immutable data models. 
+The record type offers the following features:
+
+    Concise syntax for creating a reference type with immutable properties
+    Built-in behavior useful for a data-centric reference type:
+        Value equality
+        Concise syntax for nondestructive mutation
+        Built-in formatting for display
+    Support for inheritance hierarchies
+
+
+Value equality
+--------------
+If you don't override or replace equality methods, the type you declare governs how 
+equality is defined:
+
+    For class types, two objects are equal if they refer to the same object in 
+    memory.
+    For struct types, two objects are equal if they are of the same type and store 
+    the same values.
+    For types with the record modifier (record class, record struct, and readonly 
+    record struct), two objects are equal if they are of the same type and store 
+    the same values.
+
+
+Nondestructive mutation
+-----------------------
+If you need to copy an instance with some modifications, use a with expression to 
+achieve nondestructive mutation. A with expression creates a new record instance 
+that's a copy of an existing record instance, but with specified properties and 
+fields modified.
+
+public record Person(string FirstName, string LastName)
+{
+    public string[] PhoneNumbers { get; init; }
+}
+
+public static void Main()
+{
+    Person person1 = new("Nancy", "Davolio") { PhoneNumbers = new string[1] };
+    Console.WriteLine(person1);
+    // output: Person { FirstName = Nancy, LastName = Davolio, PhoneNumbers = System.String[] }
+
+    Person person2 = person1 with { FirstName = "John" };
+    Console.WriteLine(person2);
+    // output: Person { FirstName = John, LastName = Davolio, PhoneNumbers = System.String[] }
+    Console.WriteLine(person1 == person2); // output: False
+
+    person2 = person1 with { PhoneNumbers = new string[1] };
+    Console.WriteLine(person2);
+    // output: Person { FirstName = Nancy, LastName = Davolio, PhoneNumbers = System.String[] }
+    Console.WriteLine(person1 == person2); // output: False
+
+    person2 = person1 with { };
+    Console.WriteLine(person1 == person2); // output: True
+}
+
+
+Inheritance
+
+This section only applies to record class types.
+
+A record can inherit from another record. However, a record can't inherit from a 
+class, and a class can't inherit from a record.
+
+

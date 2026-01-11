@@ -8,6 +8,7 @@ using csodocs.cs7days.day4;
 using csodocs.cs7days.day5;
 using System.Runtime.CompilerServices;
 using csodocs.cs7days.day7;
+using csodocs._1_type_system.records;
 
 // Basics are all embedded inside below function
 void basics()
@@ -166,3 +167,27 @@ Enummy enummy = new();
 
 enummy.ShowEnumValues();
 
+// ===============================================================================
+
+// Records Revisited
+
+// _1_type_system/records
+
+PositionalRecordClass positionalRecordClass = new("Amgad" , 40);
+WriteLine(positionalRecordClass);
+
+var positionalRecordClass2 = new PositionalRecordClass("Atef" ,35);
+WriteLine(positionalRecordClass2);;
+
+var positionalRecordClass3 = new
+{
+    Name= "Youssef",
+    Age=  27
+};
+
+WriteLine(positionalRecordClass3);
+
+// Using NonDestructive Mutation "with"
+var positionalRecordClass4 = positionalRecordClass3 with {Name = "Ashraf"}; 
+WriteLine(positionalRecordClass4);
+WriteLine(positionalRecordClass.ReturnDataAsString());
