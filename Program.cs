@@ -9,6 +9,7 @@ using csodocs.cs7days.day5;
 using System.Runtime.CompilerServices;
 using csodocs.cs7days.day7;
 using csodocs._1_type_system.records;
+using csodocs._1_type_system.records.oop;
 
 // Basics are all embedded inside below function
 void basics()
@@ -191,3 +192,8 @@ WriteLine(positionalRecordClass3);
 var positionalRecordClass4 = positionalRecordClass3 with {Name = "Ashraf"}; 
 WriteLine(positionalRecordClass4);
 WriteLine(positionalRecordClass.ReturnDataAsString());
+
+NewOOP newOOP = new("Alexander");
+
+WriteLine(newOOP.PrintName());
+
