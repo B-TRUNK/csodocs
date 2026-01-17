@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using csodocs.cs7days.day7;
 using csodocs._1_type_system.records;
 using csodocs._1_type_system.records.oop;
+using csodocs.oop;
 
 // Basics are all embedded inside below function
 void basics()
@@ -194,6 +195,12 @@ WriteLine(positionalRecordClass4);
 WriteLine(positionalRecordClass.ReturnDataAsString());
 
 NewOOP newOOP = new("Alexander");
-
 WriteLine(newOOP.PrintName());
 
+// Using Primary Constructor /oop/PrimaryConst.cs
+PrimaryConst primaryConst = new(35);
+WriteLine(primaryConst.GetAge());
+
+// Using Required Parameters
+var requiredParam = new RequiredParam(){name = "Anis",age = 29};
+WriteLine($"Name is : {requiredParam.name} \nAge is: {requiredParam.age}");
