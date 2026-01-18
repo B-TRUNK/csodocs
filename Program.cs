@@ -205,5 +205,11 @@ WriteLine(primaryConst.GetAge());
 var requiredParam = new RequiredParam(){name = "Anis",age = 29};
 WriteLine($"Name is : {requiredParam.name} \nAge is: {requiredParam.age}");
 
+// Structs(should be immutable)
+var structObj = new Structy("Haytham", 29);
+WriteLine(structObj.GetPersonData());
 
-var structObj = Structy("Haytham", 28);
+var structObj2 = structObj;
+WriteLine(structObj2.name);
+structObj2.SetName("Ali");
+WriteLine(structObj2.GetPersonData());

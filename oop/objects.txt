@@ -14,3 +14,6 @@ that type using the new operator
 Because structs are value types, a variable of a struct object holds a copy of the 
 entire object. Instances of structs can also be created by using the new operator, 
 but this isn't required,
+
+struct objects p1, p2:
+The memory for both p1 and p2 is allocated on the thread stack

@@ -7,13 +7,27 @@ namespace csodocs.oop
 {
     public struct Structy
     {
-         private string name;
-         private int    age;
+         private string Name;
+         private int    Age;
 
-         public Structy(string name, int age)
+         public string name => Name;
+
+         public Structy(string Name, int Age)
         {
-            this.name = name;
-            this.age  = age;
+            this.Name = Name;
+            this.Age  = Age;
         }
+
+        public string GetPersonData()
+        {
+            return (this.Name + this.Age).ToString();
+        }
+
+        // for testing only, but structs shouldn't be mutable
+        public void SetName(string newName)
+        {
+            this.Name = newName;
+        }
+
     }
 }
