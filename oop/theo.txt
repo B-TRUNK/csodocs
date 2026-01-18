@@ -92,3 +92,31 @@ A class can contain declarations of the following members:
 
     Enumeration types
     https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
+
+
+Inheritance
+-----------
+Classes (but not structs) support the concept of inheritance. 
+
+Interfaces
+----------
+Classes, structs, and records can implement multiple interfaces. To implement from an 
+interface means that the type implements all the methods defined in the interface.
+
+Static Types
+------------
+Classes (but not structs or records) can be declared as static. A static class can 
+contain only static members and can't be instantiated with the new keyword. One copy 
+of the class is loaded into memory when the program loads, and its members are 
+accessed through the class name. Classes, structs, and records can contain static 
+members. 
+
+Anonymous Types
+---------------
+In situations where it isn't convenient or necessary to create a named class you use 
+anonymous types. Named data members define anonymous types.
+
+Extension Members
+-----------------
+You can "extend" a class without creating a derived class by creating a separate type. 
+That type contains methods that can be called as if they belonged to the original type.

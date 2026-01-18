@@ -1,0 +1,16 @@
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/objects
+
+Struct Instances vs. Class Instances
+------------------------------------
+Because classes are reference types, a variable of a class object holds a reference 
+to the address of the object on the managed heap. If a second variable of the same 
+type is assigned to the first variable, then both variables refer to the object at 
+that address
+
+Instances of classes are created by using the new operator.
+To create a new instance of a type, you typically invoke one of the constructors of 
+that type using the new operator
+
+Because structs are value types, a variable of a struct object holds a copy of the 
+entire object. Instances of structs can also be created by using the new operator, 
+but this isn't required,

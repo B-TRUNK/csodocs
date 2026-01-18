@@ -204,3 +204,6 @@ WriteLine(primaryConst.GetAge());
 // Using Required Parameters
 var requiredParam = new RequiredParam(){name = "Anis",age = 29};
 WriteLine($"Name is : {requiredParam.name} \nAge is: {requiredParam.age}");
+
+
+var structObj = Structy("Haytham", 28);
