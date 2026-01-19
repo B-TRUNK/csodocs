@@ -213,3 +213,6 @@ var structObj2 = structObj;
 WriteLine(structObj2.name);
 structObj2.SetName("Ali");
 WriteLine(structObj2.GetPersonData());
+
+Rectangle rectangle = new Rectangle();
+rectangle.Draw();
