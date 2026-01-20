@@ -214,5 +214,23 @@ WriteLine(structObj2.name);
 structObj2.SetName("Ali");
 WriteLine(structObj2.GetPersonData());
 
-Rectangle rectangle = new Rectangle();
-rectangle.Draw();
+
+// Polymorphism at work #1: a Rectangle, Triangle and Circle
+// can all be used wherever a Shape is expected. No cast is
+// required because an implicit conversion exists from a derived
+// class to its base class.
+List<Shape> shapes =
+[
+    new Rectangle(),
+    new Circle()
+];
+
+// Polymorphism at work #2: the virtual method Draw is
+// invoked on each of the derived classes, not the base class.
+foreach (var shape in shapes)
+{
+    shape.Draw();
+}
+
+
+
