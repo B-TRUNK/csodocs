@@ -231,6 +231,10 @@ foreach (var shape in shapes)
 {
     shape.Draw();
 }
+// In C#, every type is polymorphic because all types, including user-defined types, inherit from Object. 
 
+DerivedClass derivedClass = new();
+derivedClass.DoWork();
 
+int value = derivedClass.WorkProperty;
 
